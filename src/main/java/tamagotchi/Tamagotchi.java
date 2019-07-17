@@ -183,7 +183,7 @@ public class Tamagotchi {
 
             });
 
-            W = 500;
+            W = 382;
             H = 520;
 
             setSize(W, H);
@@ -402,13 +402,6 @@ public class Tamagotchi {
                     }
                 }
             }
-            g.setColor(currentTheme.pixel);
-            g.drawString("DEBUG --", 360, 60);
-            g.drawString("AGE: " + tom.age, 360, 70);
-            g.drawString("HUNGER: " + tom.hunger, 360, 80);
-            g.drawString("ENERGY: " + tom.energy, 360, 90);
-            g.drawString("WASTE: " + tom.waste, 360, 100);
-            g.drawString("HAPPINESS: " + tom.happiness, 360, 110);
         }
     }
 
