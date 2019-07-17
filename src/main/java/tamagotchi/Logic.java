@@ -1,8 +1,8 @@
 package tamagotchi;
 
-public class Logic {
+class Logic {
 
-    public Logic(){
+    Logic() {
         doSleep();
     }
 
@@ -11,49 +11,50 @@ public class Logic {
     int waste = 0;
     int age = 0;
 
-    // not required
     int happiness = 0;
 
-    public static final int AGE_HATCH = 128;
-    public static final int AGE_MATURE = 796;
-    public static final int AGE_DEATHFROMNATURALCAUSES = 8192; // :(
+    static final int AGE_HATCH = 128;
+    static final int AGE_MATURE = 796;
+    static final int AGE_DEATHFROMNATURALCAUSES = 8192;
 
-    public static final int HUNGER_CANEAT = 32;
-    public static final int HUNGER_NEEDSTOEAT = 128;
-    //not required
-    public static final int HUNGER_SICKFROMNOTEATING = 256;
-    public static final int HUNGER_DEADFROMNOTEATING = 512;
+    static final int HUNGER_NEEDSTOEAT = 128;
+    static final int HUNGER_DEADFROMNOTEATING = 512;
 
-    public static final int ENERGY_CANSLEEP = 150;
-    public static final int ENERGY_TIERD = 64;
-    public static final int ENERGY_PASSOUT = 8;
+    static final int ENERGY_CANSLEEP = 150;
+    static final int ENERGY_TIERD = 64;
+    static final int ENERGY_PASSOUT = 8;
 
-    public static final int WASTE_EXPUNGE = 256; // lol
+    static final int WASTE_EXPUNGE = 256;
 
-
-    public void doCycle(){
+    void doCycle() {
         doRandomEvent();
         hunger++;
         waste++;
         energy--;
-        age+=2;
-        if(waste>= WASTE_EXPUNGE) happiness--;
+        age += 2;
+        if (waste >= WASTE_EXPUNGE) happiness--;
     }
 
-    public void doSleep(){
+    private void doSleep() {
         energy += 256;
     }
 
-    public void doRandomEvent(){
-
-        switch((int)(Math.random()*32)){
-            case 12: hunger++;
-            case 16: energy--;
-            case 18: energy++;
-            case 20: waste++;
-            case 7: happiness++;
-            case 4: happiness--;
-            default: break;
+    private void doRandomEvent() {
+        switch ((int) (Math.random() * 32)) {
+            case 12:
+                hunger++;
+            case 16:
+                energy--;
+            case 18:
+                energy++;
+            case 20:
+                waste++;
+            case 7:
+                happiness++;
+            case 4:
+                happiness--;
+            default:
+                break;
         }
     }
 }
